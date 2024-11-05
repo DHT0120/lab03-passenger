@@ -4,6 +4,8 @@ import { type Data } from '@/types'
 import { ref, onMounted, computed, watchEffect } from 'vue'
 import PassengerCard from '@/components/PassengerCard.vue';
 import PassengerServices from '@/services/PassengerServices';
+import nProgress from 'nprogress'
+
 
 const datas = ref<Data[] | null>(null)
 const totalDatas = ref(0)
@@ -100,7 +102,7 @@ watchEffect(fetchPassengers);
 .pagination a {
   flex: 1;
   text-decoration: none;
-  color: #38abe1;
+  color: #2c3e50;
 }
 
 #page-prev {

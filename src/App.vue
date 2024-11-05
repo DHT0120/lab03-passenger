@@ -1,11 +1,22 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { useMessageStore } from '@/stores/message'
+import { storeToRefs } from 'pinia'
+import 'nprogress/nprogress.css'
+
+const store = useMessageStore()
+const { message } = storeToRefs(store)
+
 
 </script>
 
 <template>
   <div id="layout">
     <header>
+      <div id="flashMessage" v-if="message">
+        <h4>{{ message }}</h4>
+      </div>
+
       <div class="wrapper">
         <nav>
           <RouterLink :to="{ name: 'passenger' }">Passenger</RouterLink> |
@@ -25,7 +36,7 @@ import { RouterLink, RouterView } from 'vue-router'
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #01010b;
+  color: #2c3e50;
 }
 
 nav {
@@ -35,16 +46,28 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #020302;
+  color: #2c3e50;
 
 }
 
 nav a.router-link-exact-active {
-  color: #0fd8be;
+  color: #42b983;
 
 }
 
 h2 {
   font-size: 20px;
 }
+@keyframes yellofade {
+  from {
+    background-color: yellow;
+  }
+  to {
+    background-color: transparent;
+  }
+}
+#flashMessage {
+  animation: yellofade 3s ease-in-out;
+}
+
 </style>
