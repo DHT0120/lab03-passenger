@@ -61,10 +61,10 @@ watchEffect(fetchPassengers);
     </template>
   </div>
   <div class="pagination">
-    <RouterLink id="page-prev" :to="{ name: 'passenger-list-view', query: { page: page - 1, size: pageSize } }" rel="prev"
+    <RouterLink id="page-prev" :to="{ name: 'passenger', query: { page: page - 1, size: pageSize } }" rel="prev"
       v-if="page != 1">
       &#60; Prev Page</RouterLink>
-    <RouterLink id="page-next" :to="{ name: 'passenger-list-view', query: { page: page + 1, size: pageSize } }" rel="next"
+    <RouterLink id="page-next" :to="{ name: 'passenger', query: { page: page + 1, size: pageSize } }" rel="next"
       v-if="hasNexPage">
       Next Page &#62;</RouterLink>
   </div>
@@ -90,6 +90,7 @@ watchEffect(fetchPassengers);
   width: 290px;
   justify-content: space-between;
   align-items: baseline;
+  margin-left: 560px;
 }
 
 .pagination .pagination-size-selector {
